@@ -37,7 +37,7 @@ export default (
   //eslint-disable-line
   const MENTION_REGEX = supportWhiteSpace
     ? new RegExp(`${escapeRegExp(trigger)}(${regExp}|\\s){0,}`, 'g')
-    : new RegExp(`(\\s|^)${escapeRegExp(trigger)}${regExp}`, 'g');
+    : new RegExp(`([\\s\u3040-\u309F\u30A0-\u30FF\u4e00-\u9eff]|^)${escapeRegExp(trigger)}${regExp}`, 'g');
 
   return (contentBlock: Object, callback: Function) => {
     findWithRegex(MENTION_REGEX, contentBlock, callback);
